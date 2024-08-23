@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Usedata from '../../Hooks/Usedata';
 import Loader from "../Common/Loader"
 import { useContext } from 'react';
+import config from '../../config.json'
 import CartContext from '../../contexts/CartContext';
 import UserContext from '../../contexts/UserContext';
 
@@ -24,13 +25,13 @@ const SingleProductPage = () => {
        {product &&<><div className="align_center">
          
             <div className="single_product_thumbnails">
-                {product.images.map((image,index) => <img src={`http://localhost:5000/products/${image}`} alt={product.title}
+                {product.images.map((image,index) => <img src={`${config.backendURL}/products/${image}`} alt={product.title}
                 className={selectedImage==index ? 'selected_image' :""}
                 onClick={()=>
                     setselectedImage(index)
                 }/>)}
             </div>
-            <img src={`http://localhost:5000/products/${product.images[selectedImage]}`} alt={product.title} className='single_product_display' />
+            <img src={`${config.backendURL}/products/${product.images[selectedImage]}`} alt={product.title} className='single_product_display' />
         </div>
         <div className=" single_product_details">
             <h1 className="single_product_title">{product.title}</h1>

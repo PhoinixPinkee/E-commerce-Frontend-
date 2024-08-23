@@ -1,4 +1,5 @@
 import axios from "axios";
+import config from '../config.json'
 export default axios.create({
-    baseURL:"http://127.0.0.1:5000/api"
+    baseURL:`${config.backendURL}/api`
 })

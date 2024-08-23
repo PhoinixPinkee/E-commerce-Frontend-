@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './ProductCard.css'
+import config from '../../config.json'
 import star from '../../assets/white-star.png'
 import basket from '../../assets/basket.png'
 import { NavLink } from 'react-router-dom'
@@ -10,7 +11,7 @@ const ProductCard = ({ product}) => {
     const user=useContext(UserContext)
   return (
    <article className=' product_card'>
-    <div className="product_image"><NavLink to={`/product/${product?._id}`}><img src={`http://localhost:5000/products/${product?.images[0]}`} alt="" /></NavLink>
+    <div className="product_image"><NavLink to={`/product/${product?._id}`}><img src={`${config.backendURL}/products/${product?.images[0]}`} alt="" /></NavLink>
     </div>
     <div className="product_details">
         <h3 className="product_price">${product?.price}</h3>
